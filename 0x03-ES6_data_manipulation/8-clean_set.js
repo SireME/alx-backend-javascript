@@ -1,11 +1,11 @@
 export default function cleanSet(set, startString) {
   // Input validation
-  if (!set || !Array.isArray(set)) {
-    throw new Error('The "set" parameter must be a non-null array.');
+  if (!(set instanceof Set)) {
+    return '';
   }
 
   if (typeof startString !== 'string') {
-    throw new Error('The "startString" parameter must be a non-null string.');
+    return '';
   }
 
   let newString = '';
