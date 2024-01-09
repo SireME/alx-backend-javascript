@@ -7,9 +7,5 @@ export default function cleanSet(set, startString) {
       newString += `${value.slice(sLen)}-`;
     }
   }
-
-  if (startString === '') {
-    return '';
-  }
   return newString.slice(0, -1);
 }
