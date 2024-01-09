@@ -1,12 +1,15 @@
-// 8-clean_set.js
-function cleanSet(set, startString) {
-  // Filter the set values that start with the specified string
-  const filteredValues = [...set].filter((value) => value.startsWith(startString));
+export default function cleanSet(set, startString) {
+  let newString = '';
+  const sLen = startString.length;
 
-  // Join the filtered values using '-'
-  const resultString = filteredValues.join('-');
+  for (const value of set) {
+    if (value.startsWith(startString)) {
+      newString += `${value.slice(sLen)}-`;
+    }
+  }
 
-  return resultString;
+  if (startString === '') {
+    return '';
+  }
+  return newString.slice(0, -1);
 }
-
-export default cleanSet;
