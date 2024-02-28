@@ -23,7 +23,7 @@ function countStudents (path) {
       field[`${vls[lastIndex]}`].push(vls[0]);
     }
   });
-  // log total number of students
+
   console.log(`Number of students: ${allStudents}`);
   for (const key in field) {
     const list = field[key].join(', ');
