@@ -4,6 +4,9 @@ function countStudents (path) {
   if (!fs.existsSync(path)) {
     throw new Error('Cannot load the database');
   }
+  if (!fs.statSync(path).isFile()) {
+    throw new Error('Cannot load the database');
+  }
   let csv = fs.readFileSync(path, 'utf-8').split('\n');
   csv = csv.slice(1);
   let allStudents = 0;
@@ -28,4 +31,4 @@ function countStudents (path) {
   }
 }
 
-module.exports = countStudents
+module.exports = countStudents;
