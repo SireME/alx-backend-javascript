@@ -7,7 +7,11 @@ function countStudents (path) {
   if (!fs.statSync(path).isFile()) {
     throw new Error('Cannot load the database');
   }
-  let csv = fs.readFileSync(path, 'utf-8').split('\n');
+  let csv = fs
+  .readFileSync(path, 'utf-8')
+  .toString('utf-8')
+  .trim()
+  .split('\n');
   csv = csv.slice(1);
   let allStudents = 0;
   const field = {};
